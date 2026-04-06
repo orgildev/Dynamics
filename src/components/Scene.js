@@ -23,6 +23,7 @@ const SwitchButton = styled.button`
   font-size: 16px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
+  z-index: 10;
 
   &:hover {
     background: rgba(255, 255, 255, 1);
@@ -64,7 +65,7 @@ export function Scene({ showDrone, setShowDrone }) {
           shadow-mapSize-height={2048}
         />
         <hemisphereLight intensity={0.5} groundColor="#000000" />
-        
+
         {/* Environment and Model */}
         <Suspense fallback={<LoadingFallback />}>
           <Environment
@@ -72,17 +73,17 @@ export function Scene({ showDrone, setShowDrone }) {
             background
             blur={0.7}
           />
-          
+
           <Center position={[0, showDrone ? 30 : 0, 0]}>
             {showDrone ? <DroneModel /> : <HelicopterModel />}
           </Center>
         </Suspense>
-        
+
         {/* Controls */}
         <OrbitControls
           makeDefault
           enablePan={true}
-          enableZoom={true}
+          enableZoom={false}
           enableRotate={true}
           minPolarAngle={0}  // Allow looking straight down
           maxPolarAngle={Math.PI}  // Allow looking straight up

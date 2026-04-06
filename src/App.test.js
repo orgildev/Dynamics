@@ -10,6 +10,12 @@ global.ResizeObserver = class ResizeObserver {
 
 test('renders app container', () => {
   render(<App />);
-  const titleElement = screen.getByText(/Drone Technology/i);
-  expect(titleElement).toBeInTheDocument();
+  const titleElements = screen.getAllByText(/Drone Technology/i);
+  expect(titleElements.length).toBeGreaterThan(0);
+});
+
+test('renders research content', () => {
+  render(<App />);
+  const researchTitles = screen.getAllByText(/Projectile Motion of a Drone’s Payload/i);
+  expect(researchTitles.length).toBeGreaterThan(0);
 });

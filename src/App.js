@@ -2,13 +2,19 @@ import React, { Suspense } from 'react';
 import styled from 'styled-components';
 import { Scene } from './components/Scene';
 import { EducationalContent } from './components/EducationalContent';
+import { ResearchContent } from './components/ResearchContent';
 
 const AppContainer = styled.div`
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
+  background: #f0f0f0;
+  overflow-x: hidden;
+`;
+
+const VisualSection = styled.div`
+  width: 100%;
   height: 100vh;
   position: relative;
-  overflow: hidden;
-  background: #f0f0f0;
 `;
 
 const Canvas3DContainer = styled.div`
@@ -69,10 +75,13 @@ function App() {
   return (
     <AppContainer>
       <ErrorBoundary>
-        <Canvas3DContainer>
-          <Scene showDrone={showDrone} setShowDrone={setShowDrone} />
-        </Canvas3DContainer>
-        <EducationalContent showDrone={showDrone} />
+        <VisualSection>
+          <Canvas3DContainer>
+            <Scene showDrone={showDrone} setShowDrone={setShowDrone} />
+          </Canvas3DContainer>
+          <EducationalContent showDrone={showDrone} />
+        </VisualSection>
+        <ResearchContent />
       </ErrorBoundary>
     </AppContainer>
   );

@@ -29,11 +29,21 @@ const SectionTitle = styled.h3`
   margin-bottom: 10px;
 `;
 
+const ScrollNotice = styled.div`
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed #ccc;
+  text-align: center;
+  color: #3498db;
+  font-weight: bold;
+  font-size: 0.9rem;
+`;
+
 export function EducationalContent({ showDrone }) {
   return (
     <Container>
       <Title>{showDrone ? 'Drone Technology' : 'Helicopter Flight Mechanics'}</Title>
-      
+
       {showDrone ? (
         <>
           <Section>
@@ -66,15 +76,17 @@ export function EducationalContent({ showDrone }) {
               <li>Cyclic Control: Tilts the rotor disc to control forward, backward, and lateral movement.</li>
               <li>Collective Control: Changes the pitch of all blades to increase or decrease altitude.</li>
               <li>Anti-Torque System: A tail rotor or NOTAR system counteracts torque to maintain stability.</li>
+              <li>Dissymmetry of Lift: Blade flapping and cyclic feathering compensate for imbalance.</li>
             </ul>
           </Section>
 
           <Section>
-            <SectionTitle>Dissymmetry of Lift</SectionTitle>
-            <p>In forward flight, the advancing rotor blade experiences higher velocity, generating more lift than the retreating blade. Blade flapping and cyclic feathering compensate for this imbalance.</p>
+            <SectionTitle>Flight Characteristics</SectionTitle>
+            <p>Helicopters use a complex mechanical system of swashplates and pitch links to control the orientation and thrust of a single main rotor, with a tail rotor providing necessary anti-torque and yaw control.</p>
           </Section>
         </>
       )}
+      <ScrollNotice>↓ Scroll down for in-depth research ↓</ScrollNotice>
     </Container>
   );
 }
