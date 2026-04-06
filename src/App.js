@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState, Component } from 'react';
 import styled from 'styled-components';
 import { Scene } from './components/Scene';
 import { EducationalContent } from './components/EducationalContent';
-import { ResearchContent } from './components/ResearchContent';
+import { ResearchContent } from './components/Research';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -37,7 +37,7 @@ const ErrorDisplay = styled.div`
   text-align: center;
 `;
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -70,7 +70,7 @@ class ErrorBoundary extends React.Component {
 }
 
 function App() {
-  const [showDrone, setShowDrone] = React.useState(true);
+  const [showDrone, setShowDrone] = useState(true);
   
   return (
     <AppContainer>
